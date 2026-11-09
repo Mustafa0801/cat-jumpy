@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgo2y3f2vehjw"]
 
-[ext_resource type="Texture2D" uid="uid://dmtqpgye3a0gf" path="res://Assets/Canine_Black_Full_FX.png" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://dmtqpgye3a0gf" path="res://Assets/Sprites/Canine_Black_Full_FX.png" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://bh6okcy1hf0h2" path="res://Scripts/enemy.gd" id="1_afpow"]
 [ext_resource type="PackedScene" uid="uid://iig5rdjrlymr" path="res://Scenes/killzone.tscn" id="2_afpow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_287tu"]
@@ -159,15 +160,24 @@ size = Vector2(22, 19)
 
 [node name="Dog" type="Node2D" unique_id=745729871]
 scale = Vector2(0.9, 0.9)
+script = ExtResource("1_afpow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=342556527]
 sprite_frames = SubResource("SpriteFrames_ne65n")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.13042389
+animation = &"run"
+autoplay = "run"
+flip_h = true
 
 [node name="Killzone" parent="." unique_id=1983248870 instance=ExtResource("2_afpow")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=461737073]
 position = Vector2(-2.0000002, 6.5000005)
 shape = SubResource("RectangleShape2D_utgcl")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1767081010]
+position = Vector2(0, 3.3333335)
+target_position = Vector2(24.444447, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=674663396]
+position = Vector2(0, 3.3333335)
+target_position = Vector2(-24.444, 0)

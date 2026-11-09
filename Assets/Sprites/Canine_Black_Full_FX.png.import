@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c10rke5j5r7w2"
-path="res://.godot/imported/Cat Sprite Sheet.png-da9d91c2766c55f13f55105572439d61.ctex"
+uid="uid://dmtqpgye3a0gf"
+path="res://.godot/imported/Canine_Black_Full_FX.png-b3ec8e0b0edb30cdfd92e4bdfadc1219.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cat Sprite Sheet.png"
-dest_files=["res://.godot/imported/Cat Sprite Sheet.png-da9d91c2766c55f13f55105572439d61.ctex"]
+source_file="res://Assets/Sprites/Canine_Black_Full_FX.png"
+dest_files=["res://.godot/imported/Canine_Black_Full_FX.png-b3ec8e0b0edb30cdfd92e4bdfadc1219.ctex"]
 
 [params]
 

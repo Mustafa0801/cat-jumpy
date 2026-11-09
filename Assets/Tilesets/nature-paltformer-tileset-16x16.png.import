@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byxll8yh4qrex"
-path="res://.godot/imported/coin4_16x16.png-1cc32307dbf37637ddbfc722796b42a3.ctex"
+uid="uid://1qo54h4kjgqt"
+path="res://.godot/imported/nature-paltformer-tileset-16x16.png-7279b9dc3efd56f7147fc8d2237f41af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/coin4_16x16.png"
-dest_files=["res://.godot/imported/coin4_16x16.png-1cc32307dbf37637ddbfc722796b42a3.ctex"]
+source_file="res://Assets/Tilesets/nature-paltformer-tileset-16x16.png"
+dest_files=["res://.godot/imported/nature-paltformer-tileset-16x16.png-7279b9dc3efd56f7147fc8d2237f41af.ctex"]
 
 [params]
 

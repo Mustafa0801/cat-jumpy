@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kccp6apiuda7"
-path="res://.godot/imported/Canine_White_Full_FX.png-e70c8feada52b4aa95b83e871ca20092.ctex"
+path="res://.godot/imported/Canine_White_Full_FX.png-aa7a087ec3c1a8690f06df5b79b061b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Canine_White_Full_FX.png"
-dest_files=["res://.godot/imported/Canine_White_Full_FX.png-e70c8feada52b4aa95b83e871ca20092.ctex"]
+source_file="res://Assets/Sprites/Canine_White_Full_FX.png"
+dest_files=["res://.godot/imported/Canine_White_Full_FX.png-aa7a087ec3c1a8690f06df5b79b061b5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1qo54h4kjgqt"
-path="res://.godot/imported/nature-paltformer-tileset-16x16.png-31774edcbce31726cf06af0408eac6d1.ctex"
+uid="uid://bjshlxwx120mp"
+path="res://.godot/imported/Canine_Gray_Full_FX.png-83b9a36580b258330cc6fde524db8589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/nature-paltformer-tileset-16x16.png"
-dest_files=["res://.godot/imported/nature-paltformer-tileset-16x16.png-31774edcbce31726cf06af0408eac6d1.ctex"]
+source_file="res://Assets/Sprites/Canine_Gray_Full_FX.png"
+dest_files=["res://.godot/imported/Canine_Gray_Full_FX.png-83b9a36580b258330cc6fde524db8589.ctex"]
 
 [params]
 

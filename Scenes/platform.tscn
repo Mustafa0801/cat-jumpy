@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2pyts4sumkt8"]
 
-[ext_resource type="Texture2D" uid="uid://1qo54h4kjgqt" path="res://Assets/nature-paltformer-tileset-16x16.png" id="1_1rc8e"]
+[ext_resource type="Texture2D" uid="uid://1qo54h4kjgqt" path="res://Assets/Tilesets/nature-paltformer-tileset-16x16.png" id="1_1rc8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utgcl"]
 size = Vector2(48, 8)

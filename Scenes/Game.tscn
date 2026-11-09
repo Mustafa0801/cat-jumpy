@@ -1,11 +1,24 @@
 [gd_scene format=4 uid="uid://b42hokv8yct4c"]
 
+[ext_resource type="Script" uid="uid://dm01tn43rnfdh" path="res://Scripts/game_manager.gd" id="1_2irst"]
 [ext_resource type="PackedScene" uid="uid://djdti2asm8jyu" path="res://Scenes/Player.tscn" id="1_iukft"]
-[ext_resource type="Texture2D" uid="uid://1qo54h4kjgqt" path="res://Assets/nature-paltformer-tileset-16x16.png" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://1qo54h4kjgqt" path="res://Assets/Tilesets/nature-paltformer-tileset-16x16.png" id="2_gl6un"]
 [ext_resource type="PackedScene" uid="uid://b2pyts4sumkt8" path="res://Scenes/platform.tscn" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://ccxd2evs36qbr" path="res://Scenes/coin.tscn" id="4_kldst"]
 [ext_resource type="PackedScene" uid="uid://iig5rdjrlymr" path="res://Scenes/killzone.tscn" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://dgo2y3f2vehjw" path="res://Scenes/enemy.tscn" id="6_7lihs"]
+[ext_resource type="FontFile" uid="uid://b6ecip8yxtjai" path="res://Assets/Minecraft.ttf" id="7_fgofq"]
+
+[sub_resource type="GDScript" id="GDScript_fgofq"]
+script/source = "extends CanvasLayer
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf53h"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.5764706)
+expand_margin_left = 285.0
+expand_margin_top = 285.0
+expand_margin_right = 285.0
+expand_margin_bottom = 285.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5yw3"]
 texture = ExtResource("2_gl6un")
@@ -233,11 +246,58 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=406572840]
 
-[node name="Cat" parent="." unique_id=409566917 instance=ExtResource("1_iukft")]
+[node name="GameManager" type="Node" parent="." unique_id=1113556877]
 unique_name_in_owner = true
+script = ExtResource("1_2irst")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GameManager" unique_id=489234134]
+visible = false
+script = SubResource("GDScript_fgofq")
+
+[node name="DED" type="Label" parent="GameManager/CanvasLayer" unique_id=237486514]
+custom_maximum_size = Vector2(10000, 100)
+offset_left = 89.0
+offset_top = 284.0
+offset_right = 1089.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.6915681, 0, 0.047274083, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_fgofq")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_bf53h")
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="score" type="Label" parent="GameManager" unique_id=687536967]
+custom_maximum_size = Vector2(100, 100)
+offset_left = 1099.0
+offset_top = -146.0
+offset_right = 1199.0
+offset_bottom = -88.0
+theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_fgofq")
+theme_override_font_sizes/font_size = 16
+text = "You collected X/11 coins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Cat" parent="." unique_id=409566917 instance=ExtResource("1_iukft")]
+position = Vector2(-10, -50)
 
 [node name="Midground" type="TileMapLayer" parent="." unique_id=109901227]
-tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAADAAEAAAACAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAD+/wIAAAAAAAEAAAD+/wMAAAAAAAIAAAADAAIAAAACAAEAAAADAAMAAAACAAIAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAD//wMAAAABAAIAAAAAAAMAAAABAAIAAAABAAMAAAABAAIAAAACAAMAAAABAAIAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAIAAAAGAAAAAAABAAAAAAAGAAEAAAABAAIAAAAHAAAAAAACAAAAAAAHAAEAAAACAAIAAAD+/wAAAAACAAUAAAD+////AAACAAQAAAD+//7/AAACAAMAAAAFAP//AAAEAAYAAAAHAP//AAAGAAYAAAAAAAAAAAAGAAYAAAADAAAAAAADAAYAAAAKAAAAAAADAAAAAAAKAP7/AAABAAMAAAAKAP//AAABAAUAAAALAAAAAAAFAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAIAAAAPAP7/AAAEAAUAAAAPAP//AAACAAAAAAAPAAAAAAACAAIAAAAFAPn/AAAAAAAAAAAFAPr/AAAAAAIAAAAGAPj/AAAAAAAAAAAGAPn/AAABAAAAAAAGAPr/AAABAAEAAAAHAPj/AAACAAAAAAAHAPn/AAABAAAAAAAHAPr/AAABAAEAAAAIAPn/AAABAAAAAAAIAPr/AAABAAEAAAAJAPn/AAABAAAAAAAGAPv/AAAAAAIAAAAHAPv/AAABAAIAAAAIAPv/AAABAAIAAAAJAPr/AAABAAEAAAAJAPv/AAACAAIAAAAKAPn/AAACAAAAAAAKAPr/AAACAAIAAAAcAP//AAADAAAAAAAdAP//AAAEAAAAAAAeAP//AAAEAAAAAAAfAP//AAAEAAAAAAAgAP//AAAFAAAAAAAfAP7/AAADAAUAAAAfAP3/AAACAAMAAAAcAP7/AAAFAAYAAAAQAAAAAAAFAAUAAAARAAAAAAAFAAUAAAASAAAAAAAFAAUAAAATAAAAAAAFAAUAAAAUAAAAAAAFAAUAAAAVAAAAAAAFAAUAAAAWAAAAAAAFAAUAAAAXAAAAAAAFAAUAAAAYAAAAAAAFAAUAAAAZAAAAAAAFAAUAAAAaAAAAAAAFAAUAAAAbAAAAAAAFAAUAAAAcAAAAAAAFAAUAAAAdAAAAAAAFAAUAAAAeAAAAAAAFAAUAAAAfAAAAAAAFAAUAAAAgAAAAAAAFAAUAAAAOAPn/AAADAAEAAAASAPn/AAADAAEAAAAWAPn/AAADAAEAAAAaAPn/AAADAAAAAAAbAPn/AAAFAAAAAAAQAPf/AAADAAEAAAAUAPf/AAADAAEAAAAYAPf/AAADAAEAAAAHAPf/AAAGAAYAAAAWAPj/AAADAAYAAAAKAPj/AAACAAUAAAAJAPj/AAADAAUAAAAJAPf/AAACAAQAAAAKAPf/AAACAAQAAAAKAPb/AAACAAQAAAAKAPX/AAACAAMAAAAJAPb/AAACAAMAAAAQAPb/AAAEAAYAAAAbAPj/AAAFAAYAAAAUAPb/AAABAAUAAAAUAPX/AAABAAQAAAAUAPT/AAABAAQAAAAUAPP/AAABAAQAAAAUAPL/AAABAAMAAAAiAP7/AAAAAAAAAAAiAP//AAAAAAEAAAAiAAAAAAAAAAEAAAAiAAEAAAAAAAIAAAAjAAEAAAABAAIAAAAkAAEAAAABAAIAAAAlAAEAAAABAAIAAAAmAAEAAAABAAIAAAAjAP//AAABAAEAAAAjAAAAAAABAAEAAAAkAAAAAAABAAEAAAAlAAAAAAABAAEAAAAmAAAAAAABAAEAAAAmAP//AAABAAEAAAAlAP//AAABAAEAAAAkAP//AAABAAEAAAAjAP7/AAABAAAAAAAkAP7/AAABAAAAAAAlAP7/AAABAAAAAAAmAP7/AAABAAAAAAAqAP7/AAADAAIAAAAqAP//AAADAAMAAAAqAAAAAAADAAQAAAArAP7/AAAEAAIAAAArAP//AAAEAAMAAAArAAAAAAAEAAQAAAAsAP7/AAAEAAIAAAAsAP//AAAEAAMAAAAsAAAAAAAEAAQAAAAtAP7/AAAEAAIAAAAtAP//AAAEAAMAAAAtAAAAAAAEAAQAAAAuAP7/AAAEAAIAAAAuAP//AAAEAAMAAAAuAAAAAAAEAAQAAAAvAP7/AAAFAAIAAAAvAP//AAAFAAMAAAAvAAAAAAAFAAQAAAAnAAAAAAACAAEAAAAnAAEAAAACAAIAAAAnAP7/AAACAAAAAAAnAP//AAACAAEAAAArAPv/AAAGAAUAAAAxAP7/AAAAAAYAAAAyAP7/AAABAAYAAAAzAP7/AAABAAYAAAA0AP7/AAABAAYAAAA1AP7/AAACAAYAAAAyAP3/AAAAAAcAAAAyAPz/AAAAAAgAAAA1APv/AAAGAAUAAAA2APz/AAAGAAQAAAA3AP7/AAADAAIAAAA4AP//AAAFAAQAAAA4AP7/AAAFAAIAAAA3AP//AAADAAQAAAAjAP3/AAAGAAYAAAAmAP3/AAADAAUAAAAmAPz/AAACAAMAAAAnAP3/AAAEAAYAAAAtAP3/AAAFAAYAAAAuAPv/AAAGAAQAAAAuAPz/AAAAAAQAAAAuAP3/AAAAAAUAAAA0AP//AAAAAAQAAAA0AAEAAAAAAAQAAAA0AAAAAAAAAAMAAAA0AAIAAAAAAAUAAAA4AP3/AAABAAcAAAAqAP3/AAABAAcAAAA7AP7/AAAAAAYAAAA8AP7/AAABAAYAAAA9AP7/AAABAAYAAAA+AP7/AAABAAYAAAA/AP7/AAABAAYAAAA7AP3/AAAGAAQAAABDAP7/AAABAAYAAABEAP3/AAAGAAUAAABEAP7/AAACAAYAAABAAP7/AAABAAYAAABBAP7/AAABAAYAAABCAP7/AAABAAYAAAA=")
+tile_map_data = PackedByteArray("AAD+/wEAAAAAAAAAAAADAAEAAAACAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAD+/wIAAAAAAAEAAAD+/wMAAAAAAAIAAAADAAIAAAACAAEAAAADAAMAAAACAAIAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAD//wMAAAABAAIAAAAAAAMAAAABAAIAAAABAAMAAAABAAIAAAACAAMAAAABAAIAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAIAAAAGAAAAAAABAAAAAAAGAAEAAAABAAIAAAAHAAAAAAACAAAAAAAHAAEAAAACAAIAAAD+/wAAAAACAAUAAAD+////AAACAAQAAAD+//7/AAACAAMAAAAFAP//AAAEAAYAAAAHAP//AAAGAAYAAAAAAAAAAAAGAAYAAAADAAAAAAADAAYAAAAKAAAAAAADAAAAAAAKAP7/AAABAAMAAAAKAP//AAABAAUAAAALAAAAAAAFAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAIAAAAPAP7/AAAEAAUAAAAPAP//AAACAAAAAAAPAAAAAAACAAIAAAAFAPn/AAAAAAAAAAAFAPr/AAAAAAIAAAAGAPj/AAAAAAAAAAAGAPn/AAABAAAAAAAGAPr/AAABAAEAAAAHAPj/AAACAAAAAAAHAPn/AAABAAAAAAAHAPr/AAABAAEAAAAIAPn/AAABAAAAAAAIAPr/AAABAAEAAAAJAPn/AAABAAAAAAAGAPv/AAAAAAIAAAAHAPv/AAABAAIAAAAIAPv/AAABAAIAAAAJAPr/AAABAAEAAAAJAPv/AAACAAIAAAAKAPn/AAACAAAAAAAKAPr/AAACAAIAAAAcAP//AAADAAAAAAAdAP//AAAEAAAAAAAeAP//AAAEAAAAAAAfAP//AAAEAAAAAAAgAP//AAAFAAAAAAAfAP7/AAADAAUAAAAfAP3/AAACAAMAAAAcAP7/AAAFAAYAAAAQAAAAAAAFAAUAAAARAAAAAAAFAAUAAAASAAAAAAAFAAUAAAATAAAAAAAFAAUAAAAUAAAAAAAFAAUAAAAVAAAAAAAFAAUAAAAWAAAAAAAFAAUAAAAXAAAAAAAFAAUAAAAYAAAAAAAFAAUAAAAZAAAAAAAFAAUAAAAbAAAAAAAFAAUAAAAcAAAAAAAFAAUAAAAdAAAAAAAFAAUAAAAeAAAAAAAFAAUAAAAfAAAAAAAFAAUAAAAgAAAAAAAFAAUAAAAOAPn/AAADAAEAAAASAPn/AAADAAEAAAAWAPn/AAADAAEAAAAaAPn/AAADAAAAAAAbAPn/AAAFAAAAAAAQAPf/AAADAAEAAAAUAPf/AAADAAEAAAAYAPf/AAADAAEAAAAHAPf/AAAGAAYAAAAWAPj/AAADAAYAAAAKAPj/AAACAAUAAAAJAPj/AAADAAUAAAAJAPf/AAACAAQAAAAKAPf/AAACAAQAAAAKAPb/AAACAAQAAAAKAPX/AAACAAMAAAAJAPb/AAACAAMAAAAQAPb/AAAEAAYAAAAbAPj/AAAFAAYAAAAUAPb/AAABAAUAAAAUAPX/AAABAAQAAAAUAPT/AAABAAQAAAAUAPP/AAABAAQAAAAUAPL/AAABAAMAAAAiAP7/AAAAAAAAAAAiAP//AAAAAAEAAAAiAAAAAAAAAAEAAAAiAAEAAAAAAAIAAAAjAAEAAAABAAIAAAAkAAEAAAABAAIAAAAlAAEAAAABAAIAAAAmAAEAAAABAAIAAAAjAP//AAABAAEAAAAjAAAAAAABAAEAAAAkAAAAAAABAAEAAAAlAAAAAAABAAEAAAAmAAAAAAABAAEAAAAmAP//AAABAAEAAAAlAP//AAABAAEAAAAkAP//AAABAAEAAAAjAP7/AAABAAAAAAAkAP7/AAABAAAAAAAlAP7/AAABAAAAAAAmAP7/AAABAAAAAAAqAP7/AAADAAIAAAAqAP//AAADAAMAAAAqAAAAAAADAAQAAAArAP7/AAAEAAIAAAArAP//AAAEAAMAAAArAAAAAAAEAAQAAAAsAP7/AAAEAAIAAAAsAP//AAAEAAMAAAAsAAAAAAAEAAQAAAAtAP7/AAAEAAIAAAAtAP//AAAEAAMAAAAtAAAAAAAEAAQAAAAuAP7/AAAEAAIAAAAuAP//AAAEAAMAAAAuAAAAAAAEAAQAAAAvAP7/AAAFAAIAAAAvAP//AAAFAAMAAAAvAAAAAAAFAAQAAAAnAAAAAAACAAEAAAAnAAEAAAACAAIAAAAnAP7/AAACAAAAAAAnAP//AAACAAEAAAArAPv/AAAGAAUAAAAxAP7/AAAAAAYAAAAyAP7/AAABAAYAAAAzAP7/AAABAAYAAAA0AP7/AAABAAYAAAA1AP7/AAACAAYAAAAyAP3/AAAAAAcAAAAyAPz/AAAAAAgAAAA1APv/AAAGAAUAAAA2APz/AAAGAAQAAAA3AP7/AAADAAIAAAA4AP//AAAFAAQAAAA4AP7/AAAFAAIAAAA3AP//AAADAAQAAAAjAP3/AAAGAAYAAAAmAP3/AAADAAUAAAAmAPz/AAACAAMAAAAnAP3/AAAEAAYAAAAtAP3/AAAFAAYAAAAuAPv/AAAGAAQAAAAuAPz/AAAAAAQAAAAuAP3/AAAAAAUAAAA0AP//AAAAAAQAAAA0AAEAAAAAAAQAAAA0AAAAAAAAAAMAAAA0AAIAAAAAAAUAAAA4AP3/AAABAAcAAAAqAP3/AAABAAcAAAA7AP7/AAAAAAYAAAA8AP7/AAABAAYAAAA9AP7/AAABAAYAAAA+AP7/AAABAAYAAAA/AP7/AAABAAYAAAA7AP3/AAAGAAQAAABDAP7/AAABAAYAAABEAP3/AAAGAAUAAABEAP7/AAACAAYAAABAAP7/AAABAAYAAABBAP7/AAABAAYAAABCAP7/AAABAAYAAAAaAAAAAAAFAAUAAAAhAAAAAAAFAAUAAAAiAP3/AAABAAgAAABEAPz/AAABAAkAAAAPAP3/AAAGAAcAAAA=")
 tile_set = SubResource("TileSet_utgcl")
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=1251954883]
@@ -302,4 +362,82 @@ position = Vector2(85, 78)
 shape = SubResource("WorldBoundaryShape2D_utgcl")
 
 [node name="Dog" parent="." unique_id=745729871 instance=ExtResource("6_7lihs")]
-position = Vector2(1001, -46)
+position = Vector2(1004, -46.000004)
+
+[node name="World Text" type="Node" parent="." unique_id=248014994]
+
+[node name="Controls" type="Label" parent="World Text" unique_id=616998666]
+custom_maximum_size = Vector2(100, 100)
+offset_left = -142.0
+offset_top = -44.0
+offset_right = -42.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_fgofq")
+theme_override_font_sizes/font_size = 16
+text = "WASD or arrow keys to move"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="slow" type="Label" parent="World Text" unique_id=2115586448]
+custom_maximum_size = Vector2(100, 100)
+offset_left = 193.0
+offset_top = -218.0
+offset_right = 286.0
+offset_bottom = -172.0
+theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_fgofq")
+theme_override_font_sizes/font_size = 16
+text = "take it slow"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="don\'t fall lol" type="Label" parent="World Text" unique_id=1271581469]
+custom_maximum_size = Vector2(100, 100)
+offset_left = 329.0
+offset_top = -85.0
+offset_right = 422.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_fgofq")
+theme_override_font_sizes/font_size = 16
+text = "don't fall lol"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="danger" type="Label" parent="World Text" unique_id=615874452]
+custom_maximum_size = Vector2(100, 100)
+offset_left = 811.0
+offset_top = -135.0
+offset_right = 950.0
+offset_bottom = -89.0
+theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_fgofq")
+theme_override_font_sizes/font_size = 16
+text = "enemy incoming ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
