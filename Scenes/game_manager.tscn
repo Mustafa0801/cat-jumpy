@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dd8y756pwdtdp"]
+
+[ext_resource type="Script" uid="uid://dm01tn43rnfdh" path="res://Scripts/game_manager.gd" id="1_e5fcp"]
+[ext_resource type="FontFile" uid="uid://b6ecip8yxtjai" path="res://Assets/Minecraft.ttf" id="2_sq00h"]
+[ext_resource type="AudioStream" uid="uid://csc1fa0yhpgte" path="res://Assets/sfx/low-honor-rdr-2.mp3" id="3_sq00h"]
+
+[sub_resource type="GDScript" id="GDScript_fgofq"]
+script/source = "extends CanvasLayer
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf53h"]
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.5764706)
+expand_margin_left = 285.0
+expand_margin_top = 285.0
+expand_margin_right = 285.0
+expand_margin_bottom = 285.0
+
+[node name="GameManager" type="Node" unique_id=1479446815]
+script = ExtResource("1_e5fcp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=579667162]
+visible = false
+script = SubResource("GDScript_fgofq")
+
+[node name="DED" type="Label" parent="CanvasLayer" unique_id=34144618]
+custom_maximum_size = Vector2(10000, 100)
+offset_left = 89.0
+offset_top = 284.0
+offset_right = 1089.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.6915681, 0, 0.047274083, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_bf53h")
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="score" type="Label" parent="." unique_id=2023410910]
+custom_maximum_size = Vector2(100, 100)
+offset_left = 1099.0
+offset_top = -146.0
+offset_right = 1199.0
+offset_bottom = -88.0
+theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 16
+text = "You collected X/11 coins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="death sound" type="AudioStreamPlayer2D" parent="." unique_id=1597886701]
+stream = ExtResource("3_sq00h")

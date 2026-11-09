@@ -156,7 +156,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utgcl"]
-size = Vector2(22, 19)
+size = Vector2(32.416668, 14.666668)
 
 [node name="Dog" type="Node2D" unique_id=745729871]
 scale = Vector2(0.9, 0.9)
@@ -166,18 +166,20 @@ script = ExtResource("1_afpow")
 sprite_frames = SubResource("SpriteFrames_ne65n")
 animation = &"run"
 autoplay = "run"
+frame_progress = 0.25889933
 flip_h = true
-
-[node name="Killzone" parent="." unique_id=1983248870 instance=ExtResource("2_afpow")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=461737073]
-position = Vector2(-2.0000002, 6.5000005)
-shape = SubResource("RectangleShape2D_utgcl")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1767081010]
 position = Vector2(0, 3.3333335)
-target_position = Vector2(24.444447, 0)
+target_position = Vector2(22, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=674663396]
 position = Vector2(0, 3.3333335)
-target_position = Vector2(-24.444, 0)
+target_position = Vector2(-22, 0)
+
+[node name="Killzone" parent="." unique_id=1983248870 node_paths=PackedStringArray("enemy_animation") instance=ExtResource("2_afpow")]
+enemy_animation = NodePath("../AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=461737073]
+position = Vector2(-1.1111113, 7.3333335)
+shape = SubResource("RectangleShape2D_utgcl")
