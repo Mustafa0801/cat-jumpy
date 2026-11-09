@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b2pyts4sumkt8"]
+
+[ext_resource type="Texture2D" uid="uid://1qo54h4kjgqt" path="res://Assets/nature-paltformer-tileset-16x16.png" id="1_1rc8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utgcl"]
+size = Vector2(48, 8)
+
+[node name="Platform" type="AnimatableBody2D" unique_id=961922876]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1707275408]
+texture = ExtResource("1_1rc8e")
+region_enabled = true
+region_rect = Rect2(0.3513565, 96, 47.86158, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922129402]
+shape = SubResource("RectangleShape2D_utgcl")
+one_way_collision = true

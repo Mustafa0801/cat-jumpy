@@ -127,6 +127,8 @@ animations = [{
 size = Vector2(6, 10.5)
 
 [node name="Cat" type="CharacterBody2D" unique_id=409566917]
+z_index = 5
+collision_layer = 2
 script = ExtResource("1_kyqiw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1243101211]
@@ -136,7 +138,8 @@ autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=823002699]
 scale = Vector2(0.7620034, -1.1244767)
-zoom = Vector2(6, 6)
+zoom = Vector2(3.3, 3.3)
+limit_bottom = 77
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1235578147]
