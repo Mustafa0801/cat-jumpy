@@ -137,6 +137,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=823002699]
+visible = false
 scale = Vector2(0.7620034, -1.1244767)
 zoom = Vector2(3.3, 3.3)
 limit_bottom = 77
