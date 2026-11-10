@@ -15,14 +15,21 @@ expand_margin_top = 285.0
 expand_margin_right = 285.0
 expand_margin_bottom = 285.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fe6u"]
+bg_color = Color(0, 0, 0, 0.7529412)
+expand_margin_left = 265.0
+expand_margin_top = 180.0
+expand_margin_right = 275.0
+expand_margin_bottom = 460.0
+
 [node name="GameManager" type="Node" unique_id=1479446815]
 script = ExtResource("1_e5fcp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=579667162]
+[node name="Death Screen" type="CanvasLayer" parent="." unique_id=579667162]
 visible = false
 script = SubResource("GDScript_fgofq")
 
-[node name="DED" type="Label" parent="CanvasLayer" unique_id=34144618]
+[node name="DED" type="Label" parent="Death Screen" unique_id=34144618]
 custom_maximum_size = Vector2(10000, 100)
 offset_left = 89.0
 offset_top = 284.0
@@ -42,23 +49,49 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="points_label" type="Label" parent="." unique_id=2023410910]
-custom_maximum_size = Vector2(100, 100)
-offset_left = 1099.0
-offset_top = -146.0
-offset_right = 1199.0
-offset_bottom = -88.0
-theme_override_colors/font_color = Color(0, 0.22442567, 0.54038393, 1)
-theme_override_colors/font_shadow_color = Color(0, 0.09411765, 0.28235295, 0.13333334)
+[node name="death sound" type="AudioStreamPlayer2D" parent="." unique_id=1597886701]
+stream = ExtResource("3_sq00h")
+attenuation = 0.0
+
+[node name="Win Screen" type="CanvasLayer" parent="." unique_id=268403245]
+visible = false
+
+[node name="points_label" type="Label" parent="Win Screen" unique_id=2023410910]
+z_index = 1
+custom_maximum_size = Vector2(10000, 1000)
+offset_left = 284.0
+offset_top = 384.0
+offset_right = 581.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0.027972437, 0.44433936, 0.9999854, 1)
+theme_override_colors/font_shadow_color = Color(0.28627452, 0.6745098, 0.88235295, 0.25490198)
 theme_override_constants/line_spacing = 5
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_sq00h")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="death sound" type="AudioStreamPlayer2D" parent="." unique_id=1597886701]
-stream = ExtResource("3_sq00h")
+[node name="Congrats" type="Label" parent="Win Screen" unique_id=1650489044]
+custom_maximum_size = Vector2(10000, 1000)
+offset_left = 231.0
+offset_top = 126.0
+offset_right = 915.0
+offset_bottom = 259.0
+theme_override_colors/font_color = Color(0.70261407, 0.48645067, 1.92523e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.92941177, 0.6745098, 0.48235294, 0.2627451)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_sq00h")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fe6u")
+text = "Congratulations! 
+You finished the game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

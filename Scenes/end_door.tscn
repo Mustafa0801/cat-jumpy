@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://88jjw3jedyb4"]
+
+[ext_resource type="Script" uid="uid://b0b87sjxpw7y1" path="res://Scenes/end_door.gd" id="1_oujam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fe6u"]
+size = Vector2(12, 16)
+
+[node name="EndDoor" type="Area2D" unique_id=1790834406]
+collision_mask = 2
+script = ExtResource("1_oujam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2078651906]
+z_index = 2
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_6fe6u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
