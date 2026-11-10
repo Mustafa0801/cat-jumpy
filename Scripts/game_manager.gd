@@ -4,9 +4,10 @@ var score : int = 0
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 
-@onready var points_label: Label = $score
+@onready var points_label: Label = $points_label
 
 @onready var death_sound: AudioStreamPlayer2D = $"death sound"
+
 
 func add_point() -> void: 
 	score += 1

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8wobi7qqrnx6"]
+
+[ext_resource type="Script" uid="uid://tecxgaamernj" path="res://Scripts/ladder_boost.gd" id="1_ah2b8"]
+
+[node name="Ladder Boost" type="Area2D" unique_id=741889081]
+collision_mask = 2
+script = ExtResource("1_ah2b8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
