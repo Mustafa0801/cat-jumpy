@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://chwju5afq6jf0"]
+
+[ext_resource type="AudioStream" uid="uid://onscokd3sdlq" path="res://Assets/sfx/Off Into The World.wav" id="1_wrh0v"]
+
+[node name="BG Music" type="AudioStreamPlayer2D" unique_id=77579897]
+stream = ExtResource("1_wrh0v")
+autoplay = true
+attenuation = 0.0
+bus = &"Music"

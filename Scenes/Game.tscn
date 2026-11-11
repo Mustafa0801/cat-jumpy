@@ -436,7 +436,7 @@ size = Vector2(13, 55)
 unique_name_in_owner = true
 
 [node name="Cat" parent="." unique_id=409566917 instance=ExtResource("1_iukft")]
-position = Vector2(-7, -29)
+position = Vector2(-5, -35)
 
 [node name="TileMaps" type="Node" parent="." unique_id=1392248275]
 

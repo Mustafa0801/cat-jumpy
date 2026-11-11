@@ -16,6 +16,7 @@ func add_point() -> void:
 
 func show_deathscreen() -> void:
 	canvas_layer.visible = true
+	score = 0
 	death_sound.play()
 
 func hide_deathscreen() -> void:
