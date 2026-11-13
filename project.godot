@@ -13,7 +13,7 @@ config_version=5
 config/name="Cat jumpy"
 run/main_scene="uid://b42hokv8yct4c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://5am5paq0uuey"
 
 [audio]
 
